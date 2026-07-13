@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Fira+Sans:ital,wght@0,400;0,600;0,800;1,400;1,600;1,800&display=swap");
+
 /* You can override the default Infima variables here. */
 :root {
     --ifm-color-primary: #2e8555;
@@ -13,9 +15,135 @@
     --ifm-color-primary-light: #33925d;
     --ifm-color-primary-lighter: #359962;
     --ifm-color-primary-lightest: #3cad6e;
+    --ifm-font-family-base: "Fira Sans", system-ui, sans-serif;
+    --ifm-heading-font-family: "Alfa Slab One", serif;
+    --ifm-heading-font-weight: 400;
     --ifm-code-font-size: 95%;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
     --ifm-container-width-xl: 1600px;
+    --ifm-footer-background-color: #2a5fa0;
+}
+
+.navbar__item {
+    margin-right: 0.5rem;
+}
+
+.navbar__items--right .colorModeToggle {
+    order: 10;
+}
+
+.navbar__items--right .navbar__item:not(.colorModeToggle):not(.searchBox) {
+    order: 1;
+}
+
+/* Navbar icon base */
+.navbar__link--docs::before,
+.navbar__link--intro::before,
+.navbar__link--blog::before,
+.navbar__link--download::before,
+.navbar__link--github::before,
+.navbar__link--zulip::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    vertical-align: middle;
+    background-color: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.navbar__link--docs::before {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z'/%3E%3C/svg%3E");
+}
+.navbar__link--intro::before {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/%3E%3C/svg%3E");
+}
+.navbar__link--blog::before {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E");
+}
+.navbar__link--download::before {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z'/%3E%3C/svg%3E");
+}
+.navbar__link--github::before {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/%3E%3C/svg%3E");
+}
+.navbar__link--zulip::before {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z'/%3E%3C/svg%3E");
+}
+
+/* Hide external link icons on navbar items with custom icons */
+.navbar__link--download svg,
+.navbar__link--zulip svg,
+.navbar__link--github svg {
+    display: none !important;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+footer.footer {
+    background-color: #2a5fa0;
+}
+
+/* asciinema-player Solarized Light theme */
+.ap-player.asciinema-player-theme-solarized-light {
+    --term-color-foreground: #657b83;
+    --term-color-background: #fdf6e3;
+    --term-color-0: #073642;
+    --term-color-1: #dc322f;
+    --term-color-2: #859900;
+    --term-color-3: #b58900;
+    --term-color-4: #268bd2;
+    --term-color-5: #d33682;
+    --term-color-6: #2aa198;
+    --term-color-7: #eee8d5;
+    --term-color-8: #002b36;
+    --term-color-9: #cb4b16;
+    --term-color-10: #586e75;
+    --term-color-11: #657b83;
+    --term-color-12: #839496;
+    --term-color-13: #6c71c4;
+    --term-color-14: #93a1a1;
+    --term-color-15: #fdf6e3;
+}
+
+/* asciinema-player VS Code Light theme */
+.ap-player.asciinema-player-theme-vscode-light {
+    --term-color-foreground: #333333;
+    --term-color-background: #ffffff;
+    --term-color-0: #333333;
+    --term-color-1: #cd3131;
+    --term-color-2: #00bc00;
+    --term-color-3: #949800;
+    --term-color-4: #0451a5;
+    --term-color-5: #bc05bc;
+    --term-color-6: #0598bc;
+    --term-color-7: #555555;
+    --term-color-8: #666666;
+    --term-color-9: #cd3131;
+    --term-color-10: #14ce14;
+    --term-color-11: #b5ba00;
+    --term-color-12: #0451a5;
+    --term-color-13: #bc05bc;
+    --term-color-14: #0598bc;
+    --term-color-15: #a5a5a5;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
